@@ -3,11 +3,11 @@ private class SendEmailToAccountOwnerTest {
 
     @testSetup
     static void createTestData() {
-        // Criação da conta de teste
+        // Test account creation
         Account acc = new Account(Name = 'Test Account');
         insert acc;
         
-        // Criação do usuário para associar à conta de teste
+        // User creation to associate with the test account
         Profile p = [SELECT Id FROM Profile WHERE Name = 'Standard User'];
         User u = new User(Alias = 'standt', Email='standarduser@testorg.com', 
                           EmailEncodingKey='UTF-8', LastName='Testing', LanguageLocaleKey='en_US', 
@@ -15,33 +15,33 @@ private class SendEmailToAccountOwnerTest {
                           TimeZoneSidKey='America/Los_Angeles', UserName='standarduser@testorg.com');
         insert u;
         
-        // Associação do usuário criado à conta de teste
+        // Association of created user to test account
         acc.OwnerId = u.Id;
         update acc;
     }
 
     @isTest
     static void testSendEmailToAccountOwner() {
-        // Criação da oportunidade de teste associada à conta criada no testSetup
+        // Creating the test opportunity associated with the account created in testSetup
         Account acc = [SELECT Id, OwnerId FROM Account WHERE Name = 'Test Account'];
         Opportunity opp = new Opportunity(Name = 'Test Opportunity', StageName = 'Prospecting', 
                                           CloseDate = Date.today().addDays(30), AccountId = acc.Id);
         insert opp;
         
-        // Verificação de que o e-mail foi enviado corretamente
+        // Verification that the email was sent correctly
         Test.startTest();
         String usrEmail = [SELECT Email FROM User WHERE Id = :acc.OwnerId  LIMIT 1].Email;
         
         Messaging.SingleEmailMessage message = new Messaging.SingleEmailMessage();
         message.ToAddresses = new String[] {usrEmail};
-        message.subject = 'Nova Oportunidade Adicionada';
-        message.setPlainTextBody('Uma nova oportunidade foi adicionada à sua conta ' + acc.Name);
+        message.subject = 'New Opportunity Added';
+        message.setPlainTextBody('A new opportunity has been added to your account ' + acc.Name);
 
         Messaging.SingleEmailMessage[] messages = new List < Messaging.SingleEmailMessage > {message};
         Messaging.SendEmailResult[] sentEmails = Messaging.sendEmail(messages);
         Test.stopTest();
         
-        System.assertEquals(1, sentEmails.size(), 'Deve ter sido enviado apenas um e-mail');
+        System.assertEquals(1, sentEmails.size(), 'An email should have been sent');
 
     }
 }

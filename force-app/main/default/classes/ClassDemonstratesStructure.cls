@@ -1,6 +1,6 @@
 public with sharing class ClassDemonstratesStructure {
 
-    //TIPOS PRIMITIVOS
+    //PRIMITIVE TYPES
     public static void primitiveTypes () {
         Integer num = 10;
         String name = 'John';
@@ -153,7 +153,7 @@ public with sharing class ClassDemonstratesStructure {
         public eNumsPriority eNumsPriority { get; set; }
     }
 
-    //CONDICIONAIS
+    //CONDITIONAL
     public static void simpleIfConditionals() {
         Integer num = 10;
 
@@ -167,7 +167,7 @@ public with sharing class ClassDemonstratesStructure {
 
         if (age < 18) {
             System.debug('You are underage');
-        } else if (idade >= 18 && age <= 30) {
+        } else if (age >= 18 && age <= 30) {
             System.debug('You are a young adult');
         } else {
             System.debug('You are an adult');
@@ -271,8 +271,8 @@ public with sharing class ClassDemonstratesStructure {
         listIntegers.add(2);
         listIntegers.add(3);
         
-        for (Integer number : listIntegers) {
-            System.debug(number);
+        for (Integer num : listIntegers) {
+            System.debug(num);
         }
     }
 
@@ -288,7 +288,7 @@ public with sharing class ClassDemonstratesStructure {
         }
     }
 
-    //OPERADORES
+    //OPERATORS
     public static void operators1() {
         Integer num1 = 10;
         Integer num2 = 20;
@@ -383,7 +383,7 @@ public with sharing class ClassDemonstratesStructure {
         }
     }
 
-    //FUNÇÕES E MÉTODOS
+    //FUNCTIONS AND METHODS
     public static Double calcAverage(List<Double> numbers) {
         Double sum = 0;
         for (Double num : numbers) {

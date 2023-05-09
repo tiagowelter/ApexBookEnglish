@@ -1,12 +1,12 @@
 /*
-Exemplo de execução do código no Execute Anonymous:
-        // Instanciando o objeto car1
+Code execution example in Execute Anonymous:
+        // Instantiating the car1 object
         CarV2 car1 = new CarV2 (50.0, 120);
 
-        // Instanciando o objeto car2
+        // Instantiating the car2 object
         CarV2 car2 = new CarV2 (40.0, 90);
 
-        // Usando os métodos da classe Car
+        // Using the Car class methods
         car1.refuel(20.0);
         System.debug(car1.getFuel()); // 70.0
 
@@ -17,19 +17,19 @@ Exemplo de execução do código no Execute Anonymous:
         car2.drive(); // Driving at speed: 100
 */
 public class CarV2 {
-    private double fuel;
+    private decimal fuel;
     private Integer maxSpeed;
 
-    public CarV2(double fuel, Integer maxSpeed) {
+    public CarV2(decimal fuel, Integer maxSpeed) {
         this.fuel = fuel;
         this.maxSpeed = maxSpeed;
     }
 
-    public void refuel(double fuelAmount) {
+    public void refuel(decimal fuelAmount) {
         fuel += fuelAmount;
     }
 
-    public double getFuel() {
+    public decimal getFuel() {
         return fuel;
     }
 

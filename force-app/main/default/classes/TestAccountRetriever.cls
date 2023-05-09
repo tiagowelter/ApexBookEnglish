@@ -13,7 +13,7 @@ private class TestAccountRetriever {
   static void testDebugAccounts() {
     AccountRetriever accRet = new AccountRetriever();
     accRet.debugAccounts();
-    // verificando se a lista de contas não é nula e tem pelo menos um registro
+    // checking that the list of accounts is not null and has at least one record
     System.assertNotEquals(null, accRet.accounts);
     System.assertNotEquals(0, accRet.accounts.size());
   }

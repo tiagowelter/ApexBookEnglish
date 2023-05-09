@@ -2,14 +2,14 @@
 Example of code execution in Execute Anonymous:
       // Instantiating object account1
       BankAccount account1 = new BankAccount();
-      account1.name = "James McGill";
-      account1.address = "Street ABC, 123";
+      account1.name = 'James McGill';
+      account1.address = 'Street ABC, 123';
       account1.balance = 1000;
 
       // Instantiating object account2
       BankAccount account2 = new BankAccount();
-      account2.name = "Walter White";
-      account2.address = "Street DEF, 456";
+      account2.name = 'Walter White';
+      account2.address = 'Street DEF, 456';
       account2.balance = 2000;
 
       // Performing banking operations
@@ -26,10 +26,10 @@ public class BankAccount {
    public Integer balance;
    
    public void deposit(Integer value) {
-      balance += value;
+      this.balance += value;
    }
    
    public void withdraw(Integer value) {
-      balance -= value;
+      this.balance -= value;
    }
 }

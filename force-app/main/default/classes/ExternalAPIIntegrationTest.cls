@@ -1,13 +1,13 @@
 @isTest
-global class IntegracaoBuscaLeadTest implements HttpCalloutMock {
-    
+global class ExternalAPIIntegrationTest implements HttpCalloutMock {
+
     @isTest
     static void calloutTest(){
-        
-        Test.setMock(HttpCalloutMock.class, new IntegracaoBuscaLeadTest());
+   
+        Test.setMock(HttpCalloutMock.class, new ExternalAPIIntegrationTest());
 
         Test.startTest();
-        IntegracaoBuscaLead.getData('test@test.com');
+        ExternalAPIIntegration.getData('test@test.com');
         Test.stopTest();
 
         Lead lead = [SELECT FirstName, Email FROM Lead WHERE FirstName = 'John Doe' LIMIT 1];
@@ -15,9 +15,8 @@ global class IntegracaoBuscaLeadTest implements HttpCalloutMock {
         System.assertEquals('John Doe', lead.FirstName);
         System.assertEquals('johndoe@email.com', lead.Email);
     }
-    
+
     global HTTPResponse respond(HTTPRequest req){
-        
         HttpResponse res = new HttpResponse();
         res.setHeader('Content-Type', 'application/json');
         res.setBody('{"name": "John Doe", "email": "johndoe@email.com", "company": "Street"}');

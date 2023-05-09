@@ -31,7 +31,7 @@ public with sharing class AccountsWithContactsExerciseV2 {
 		for (Id accId : accountsWithContactsMap.keySet()) {
 			Account acc = accountsWithoutContactsMap.get(accId);
 			for(Contact con : accountsWithContactsMap.get(accId)){
-				System.debug('A conta ' + acc.Name + ' tem o seguinte contato: ' + con.FirstName + ' ' + con.LastName);
+				System.debug('Account ' + acc.Name + ' has the following contact: ' + con.FirstName + ' ' + con.LastName);
 			}
 		}
 	}

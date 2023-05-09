@@ -1,4 +1,4 @@
-// Classe Apex para realizar a consulta na API externa
+// Apex class to perform query on external API
 public class ExternalAPIQuery {
     public static String getDataFromAPI(String endpoint) {
       Http h = new Http();

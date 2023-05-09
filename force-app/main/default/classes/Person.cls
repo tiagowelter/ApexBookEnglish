@@ -1,17 +1,17 @@
 /*
 Example of code execution in Execute Anonymous:
-  Person person1 = new Person("Jesse Pinkman", 30);
-  Person person2 = new Person("Hank Schrader", 25);
+Person person1 = new Person('Jesse Pinkman', 30);
+Person person2 = new Person('Hank Schrader', 25);
 
-  // Instantiating the person object
-  Person person3 = new Person("Gustavo Fring", 30);
+// Instantiating the person object
+Person person3 = new Person('Gustavo Fring', 30);
 
-  // Using the getNome method
-  System.debug(person3.getNome()); // Gustavo Fring
+// Using the getName method
+System.debug(person3.getName()); // Gustavo Fring
 
-  // Using the setNome method
-  person3.setNome("Jane Margolis");
-  System.debug(person3.getNome()); // Jane Margolis
+// Using the setName method
+person3.setName('Jane Margolis');
+System.debug(person3.getName()); // Jane Margolis
 */
 
 public class Person {

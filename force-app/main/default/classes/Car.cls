@@ -1,13 +1,13 @@
 /*
-Exemplo de execução do código no Execute Anonymous:
+Code execution example in Execute Anonymous:
         Car car1 = new Car('Toyota', 'Corolla', 2020, 35000);
         Car car2 = new Car('Honda', 'Civic', 2019, 40000);
 
-        // Acessando atributos
+        // Accessing attributes
         System.debug(car1.getBrand()); // Toyota
         System.debug(car2.getModel()); // Civic
 
-        // Acessando métodos
+        // accessing methods
         car1.startEngine(); // Engine started
         car2.accelerate(); // Accelerating
 */

@@ -12,7 +12,7 @@ public with sharing class AccountsWithContactsExercise {
 
 	public void debugContactsForAccounts() {
 		for (Account acc : accountsWithContactsMap.keySet()) {
-			System.debug('A conta ' + acc.Name + ' tem os seguintes contatos:');
+			System.debug('Account ' + acc.Name + ' has the following contacts:');
 			for (Contact con : accountsWithContactsMap.get(acc)) {
 			System.debug(con.FirstName + ' ' + con.LastName);
 			}
