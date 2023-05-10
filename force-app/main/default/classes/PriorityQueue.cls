@@ -5,7 +5,7 @@ public class PriorityQueue {
       this.heap = new List<Integer>();
     }
   
-    // Adiciona um elemento na fila
+    // Adds an element to the queue
     public void add(Integer value) {
       heap.add(value);
       Integer currentIndex = heap.size() - 1;
@@ -17,10 +17,10 @@ public class PriorityQueue {
       }
     }
   
-    // Remove e retorna o elemento de maior prioridade (o raiz da heap)
+    // Removes and returns the highest priority element (the heap root)
     public Integer poll() {
       if (heap.isEmpty()) {
-        throw new PriorityQueueException('A fila está vazia');
+        throw new PriorityQueueException('The queue is empty');
       }
       Integer result = heap.get(0);
       heap.set(0, heap.get(heap.size() - 1));
@@ -29,15 +29,15 @@ public class PriorityQueue {
       return result;
     }
   
-    // Retorna o elemento de maior prioridade sem removê-lo
+    // Returns the highest priority element without removing it
     public Integer peek() {
       if (heap.isEmpty()) {
-        throw new PriorityQueueException('A fila está vazia');
+        throw new PriorityQueueException('The queue is empty');
       }
       return heap.get(0);
     }
   
-    // Verifica se a fila está vazia
+    // Check if the queue is empty
     public Boolean isEmpty() {
       return heap.isEmpty();
     }
@@ -70,6 +70,6 @@ public class PriorityQueue {
       heap.set(j, temp);
     }
   
-    // Exceção para a fila vazia
+    // Exception for empty queue
     private class PriorityQueueException extends Exception {}
 }

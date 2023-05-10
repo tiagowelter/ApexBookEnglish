@@ -1,48 +1,48 @@
 @isTest
 public class PriorityQueueTest {
   static testMethod void testPriorityQueue() {
-    // Cria uma nova fila de prioridade
+    // Create a new priority queue
     PriorityQueue queue = new PriorityQueue();
 
-    // Adiciona elementos na fila
+    // Add elements to the queue
     queue.add(10);
     queue.add(20);
     queue.add(30);
 
-    // Verifica se o tamanho da fila é correto
+    // Checks that the queue size is correct
     System.assertEquals(3, queue.heap.size());
 
-    // Verifica o elemento de maior prioridade sem removê-lo
+    // Checks the highest priority element without removing it
     System.assertEquals(30, queue.peek());
 
-    // Remove o elemento de maior prioridade
+    // Removes the highest priority element
     System.assertEquals(30, queue.poll());
 
-    // Verifica se o tamanho da fila é correto após a remoção
+    // Checks that the queue size is correct after removal
     System.assertEquals(2, queue.heap.size());
 
-    // Verifica se a fila não está vazia
+    // Checks that the queue is not empty
     System.assertEquals(false, queue.isEmpty());
 
-    // Remove o próximo elemento de maior prioridade
+    // Removes the next highest priority element
     System.assertEquals(20, queue.poll());
 
-    // Verifica se o tamanho da fila é correto após a remoção
+    // Checks that the queue size is correct after removal
     System.assertEquals(1, queue.heap.size());
 
-    // Verifica se a fila não está vazia
+    // Checks that the queue is not empty
     System.assertEquals(false, queue.isEmpty());
 
-    // Remove o último elemento da fila
+    // Removes the last element from the queue
     System.assertEquals(10, queue.poll());
 
-    // Verifica se o tamanho da fila é correto após a remoção
+    // Checks that the queue size is correct after removal
     System.assertEquals(0, queue.heap.size());
 
-    // Verifica se a fila está vazia
+    // Check if the queue is empty
     System.assertEquals(true, queue.isEmpty());
 
-    // Verifica se a exceção é lançada ao chamar `peek` na fila vazia
+    // Checks if exception is thrown when calling `peek` on empty queue
     Boolean caughtException = false;
     try {
       queue.peek();
@@ -51,7 +51,7 @@ public class PriorityQueueTest {
     }
     System.assertEquals(true, caughtException);
 
-    // Verifica se a exceção é lançada ao chamar `poll` na fila vazia
+    // Checks if exception is thrown when calling `poll` on empty queue
     caughtException = false;
     try {
       queue.poll();

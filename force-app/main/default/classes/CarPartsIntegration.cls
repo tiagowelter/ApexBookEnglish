@@ -1,18 +1,18 @@
 public with sharing class CarPartsIntegration {
     public static void upsertCarParts(String carCode) {
-      // Realiza o GET na URL especificada, passando o código do carro
+      // Performs the GET on the specified URL, passing the car code
       Http h = new Http();
       HttpRequest req = new HttpRequest();
       req.setMethod('GET');
-      req.setEndpoint('https://pecascarros.com/getPecas/' + carCode);
+      req.setEndpoint('https://carparts.com/getParts/' + carCode);
       HttpResponse res = h.send(req);
   
-      // Verifica se a resposta é válida e parseia o JSON
+      // Checks if the response is valid and parses the JSON
       if (res.getStatusCode() == 200) {
         Map<String, Object> result = (Map<String, Object>) JSON.deserializeUntyped(res.getBody());
         List<Object> carParts = (List<Object>) result.get('carParts');
   
-        // Cria uma lista de registros Peça
+        // Creates a list of Part records
         List<Part__c> partsToUpsert = new List<Part__c>();
         for (Object obj : carParts) {
           Map<String, Object> partData = (Map<String, Object>) obj;
@@ -22,7 +22,7 @@ public with sharing class CarPartsIntegration {
           partsToUpsert.add(part);
         }
   
-        // Realiza o upsert na lista de registros Peça
+        // Performs the upsert on the Part record list
         try {
           upsert partsToUpsert;
         } catch (Exception e) {
